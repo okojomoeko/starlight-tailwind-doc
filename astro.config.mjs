@@ -7,6 +7,18 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Docs with Tailwind",
+      defaultLocale: "ja",
+      locales: {
+        en: {
+          label: "English",
+        },
+        ja: {
+          label: "日本語",
+        },
+        fr: {
+          label: "Français",
+        },
+      },
       social: {
         github: "https://github.com/withastro/starlight",
       },
@@ -15,10 +27,10 @@ export default defineConfig({
           label: "Guides",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", link: "/guides/example/" },
+            { label: "Example Guide", link: "guides/example/" },
             {
               label: "Example Guide Extend",
-              link: "/guides/example-extend-foooooooo/",
+              link: "guides/example-extend-foooooooo/",
             },
           ],
         },
