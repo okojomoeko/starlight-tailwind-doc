@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
+import { remarkDiagram } from "./remark-plugins/remark-diagram.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,6 +41,19 @@ export default defineConfig({
         },
       ],
       customCss: ["./src/tailwind.css"],
+      head: [
+        {
+          tag: "script",
+          attrs: {
+            src: "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js",
+          },
+        },
+        {
+          tag: "script",
+          content:
+            '(() => { const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("starlight-theme"); mermaid.initialize({ startOnLoad: true, theme: storedTheme }); })();',
+        },
+      ],
     }),
     tailwind({ applyBaseStyles: false }),
   ],
@@ -48,5 +62,8 @@ export default defineConfig({
     service: {
       entrypoint: "astro/assets/services/sharp",
     },
+  },
+  markdown: {
+    remarkPlugins: [remarkDiagram],
   },
 });
