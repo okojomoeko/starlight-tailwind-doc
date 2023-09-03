@@ -17,6 +17,8 @@ The following structure will be used to describe yourself.
 - Skills
 - If you have created something...
 
+[sample-mermaid|Mermaidのサンプル](/en/reference/sample-mermaid)
+
 ### Projects
 
 Write your deliverables as a project.

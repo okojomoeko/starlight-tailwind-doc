@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
 import { remarkDiagram } from "./remark-plugins/remark-diagram.mjs";
+import wikiLinkPlugin from "remark-wiki-link-plus";
 
 // https://astro.build/config
 export default defineConfig({
@@ -64,6 +65,14 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [remarkDiagram],
+    remarkPlugins: [
+      remarkDiagram,
+      [
+        wikiLinkPlugin,
+        {
+          markdownFolder: `src/content/docs`,
+        },
+      ],
+    ],
   },
 });
