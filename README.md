@@ -1,3 +1,9 @@
+# starlight-tailwind-doc
+
+starlightへの入門用サンプル
+
+-----
+
 # Starlight Starter Kit: Tailwind
 
 ```
